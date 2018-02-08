@@ -1,0 +1,16 @@
+[package]
+name = "restful"
+description = "REST client with minimalist derive interface"
+version = "0.1.0"
+authors = ["caerostris"]
+repository = "https://github.com/caerostris/restful"
+license = "MPL-2.0"
+categories = ["web-programming::http-client", "network-programming"]
+readme = "README.md"
+publish = false
+
+[dependencies]
+restful_derive = { path = "restful_derive", version = "0.1" }
+serde = "^1.0"
+serde_derive = "^1.0"
+reqwest = "^0.8"
