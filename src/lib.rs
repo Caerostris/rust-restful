@@ -14,7 +14,7 @@ impl RestApi {
 		}
 	}
 
-	pub fn get_resource<T>(&self, uri: &str) -> Result<T, Error> where for<'de> T: serde::Deserialize<'de> {
+	pub fn get_json<T>(&self, uri: &str) -> Result<T, Error> where for<'de> T: serde::Deserialize<'de> {
 		reqwest::get(format!("{}{}", self.base_url, uri).as_str())?.json()
 	}
 }
