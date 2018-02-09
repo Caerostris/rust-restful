@@ -60,7 +60,7 @@ fn impl_get_resource(ast: &syn::DeriveInput, uri: &str) -> quote::Tokens {
 
 	quote! {
 		impl #name {
-			fn get(api: &RestApi #parameter_ident) -> Result<#name, restful::Error> {
+			fn get(api: &restful::RestApi #parameter_ident) -> Result<#name, restful::Error> {
 				api.get_resource(#uri_format_ident)
 			}
 		}
