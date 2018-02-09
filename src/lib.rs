@@ -3,14 +3,14 @@ extern crate serde;
 
 pub use reqwest::Error;
 
-pub struct RestApi<'a> {
-	base_url: &'a str,
+pub struct RestApi {
+	base_url: String,
 }
 
-impl<'a> RestApi<'a> {
-	pub fn new(base_url: &'a str) -> RestApi {
+impl RestApi {
+	pub fn new(base_url: &str) -> RestApi {
 		RestApi {
-			base_url
+			base_url: String::from(base_url)
 		}
 	}
 
