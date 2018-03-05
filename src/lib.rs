@@ -1,7 +1,8 @@
 extern crate reqwest;
 extern crate serde;
 
-pub use reqwest::Error;
+pub use std::result::Result;
+pub use reqwest::{Error, get, Response, IntoUrl};
 
 pub struct RestApi {
 	base_url: String,
@@ -15,6 +16,10 @@ impl RestApi {
 	}
 
 	pub fn get_json<T>(&self, uri: &str) -> Result<T, Error> where for<'de> T: serde::Deserialize<'de> {
-		reqwest::get(format!("{}{}", self.base_url, uri).as_str())?.json()
+		self.get(uri)?.json()
+	}
+
+	pub fn get(&self, uri: &str) -> Result<Response, Error> {
+		reqwest::get(format!("{}{}", self.base_url, uri).as_str())
 	}
 }
