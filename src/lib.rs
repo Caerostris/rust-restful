@@ -6,6 +6,7 @@ pub use reqwest::{Error, get, Response, IntoUrl};
 pub use reqwest::multipart::{Form, Part};
 pub use serde::Serialize;
 
+#[derive(Debug, Clone)]
 pub struct RestApi {
 	base_url: String,
 }
